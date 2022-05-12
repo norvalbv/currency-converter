@@ -26,9 +26,9 @@ const CurrencyConverter = () => {
   // basic converter
 
   return (
-    <>
+    <div className="mx-auto relative bg-gray-500 w-3/4 rounded h-64">
       <Tabs
-        defaultActiveKey="profile"
+        defaultActiveKey="Convert"
         id="uncontrolled-tab-example"
         className="mb-3"
       >
@@ -56,9 +56,9 @@ const CurrencyConverter = () => {
             </>
           )}
         </Tab>
-        <Tab eventKey="profile" title="Historical Data"></Tab>
+        <Tab eventKey="History" title="Historical Data"></Tab>
       </Tabs>
-    </>
+    </div>
   );
 };
 

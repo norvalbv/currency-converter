@@ -49,21 +49,15 @@ const CurrencyTable = () => {
   };
 
   return (
-    <>
+    <div className="w-3/5 bg-white py-3 rounded-lg relative flex flex-col items-center mx-auto">
       <input
         type="text"
         placeholder="search conversion"
         value={search}
         onChange={handleChange}
+        className="bg-gray-500 rounded-t focus:outline-0"
       />
-      <Table
-        striped
-        bordered
-        hover
-        variant="dark"
-        size="sm"
-        style={{ width: "50%" }}
-      >
+      <Table striped bordered hover variant="dark" size="sm">
         <thead>
           <tr>
             <th>{currencies.base_code}</th>
@@ -83,9 +77,21 @@ const CurrencyTable = () => {
             </tbody>
           ))}
       </Table>
-      <button onClick={handleDecrease}>-</button>
-      <button onClick={handleIncrease}>+</button>
-    </>
+      <div>
+        <button
+          onClick={handleDecrease}
+          className="w-10 bg-gray-500 rounded-sm mr-4"
+        >
+          -
+        </button>
+        <button
+          onClick={handleIncrease}
+          className="w-10 bg-gray-500 rounded-sm"
+        >
+          +
+        </button>
+      </div>
+    </div>
   );
 };
 
