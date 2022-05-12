@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 const About = () => {
   return (
     <>
-    <h3 className="text-center my-10 underline">Why Us?</h3>
+    <h3 className="text-center mt-14 mb-6 underline">Why Us?</h3>
       <Container>
         <Row>
           <Col className="hover:scale-110 ease-linear duration-300 h-40 flex justify-center pt-16 border-white rounded-2xl bg-white/50 text-2xl">
@@ -15,7 +15,7 @@ const About = () => {
             Historical Data
           </Col>
           <Col className="hover:scale-110 ease-linear duration-300 flex justify-center pt-16 border-white rounded-2xl bg-white/50 text-2xl">
-            Convert Any Currency
+            Convert Major Currencies
           </Col>
         </Row>
       </Container>

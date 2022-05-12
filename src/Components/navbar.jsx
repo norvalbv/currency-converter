@@ -26,7 +26,7 @@ const NavBar = () => {
               <Nav defaultActiveKey="/home" className="flex-column">
                 <Nav.Link href="/home">Quick search</Nav.Link>
                 <Nav.Link eventKey="link-1">Table</Nav.Link>
-                <Nav.Link eventKey="link-2">Charts</Nav.Link>
+                <Nav.Link eventKey="link-2">Historical Data</Nav.Link>
               </Nav>
             </Offcanvas.Body>
           </Offcanvas>
