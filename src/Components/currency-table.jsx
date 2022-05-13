@@ -21,17 +21,17 @@ const CurrencyTable = () => {
 
   const [search, setSearch] = useState("");
 
-  const handleChange = (e) => {
-    console.log(Object.keys(conversionRates));
+  const handleChange = (e) => { 
     const filterBy = (str) =>
       Object.entries(conversionRates).filter((item) =>
         new RegExp("^" + str.replace(/\*/g, ".*") + "$").test(item[0])
       );
-    console.log();
+
     setSearch(e.target.value);
     setConversionRates(filterBy(`*${e.target.value.toUpperCase()}*`));
   };
 
+  console.log(conversionRates);
   const [loadStart, setLoadStart] = useState(0);
   const [loadEnd, setLoadEnd] = useState(15);
 
@@ -49,10 +49,10 @@ const CurrencyTable = () => {
   };
 
   return (
-    <div className="w-3/5 bg-white py-3 rounded-lg relative flex flex-col items-center mx-auto">
+    <div className="w-3/5 bg-white py-3 rounded-lg relative mx-auto">
       <input
         type="text"
-        placeholder="search conversion"
+        placeholder="Filter Conversions"
         value={search}
         onChange={handleChange}
         className="bg-gray-500 rounded-t focus:outline-0"
@@ -77,7 +77,7 @@ const CurrencyTable = () => {
             </tbody>
           ))}
       </Table>
-      <div>
+      <div className="my-auto relative">
         <button
           onClick={handleDecrease}
           className="w-10 bg-gray-500 rounded-sm mr-4"

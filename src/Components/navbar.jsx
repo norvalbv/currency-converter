@@ -10,7 +10,7 @@ const NavBar = () => {
     <nav>
       <Hamburger
         distance="lg"
-        color="#fff"
+        color="#44403c"
         toggled={menuOpen}
         toggle={setMenuOpen}
         label="Open Menu"

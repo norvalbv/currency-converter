@@ -6,7 +6,7 @@ const About = () => {
   return (
     <>
     <h3 className="text-center mt-14 mb-6 underline">Why Us?</h3>
-      <Container>
+      <Container className="mb-14">
         <Row>
           <Col className="hover:scale-110 ease-linear duration-300 h-40 flex justify-center pt-16 border-white rounded-2xl bg-white/50 text-2xl">
             Live Conversions

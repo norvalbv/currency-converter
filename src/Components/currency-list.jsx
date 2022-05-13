@@ -2,10 +2,39 @@ import { Line } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import { useEffect, useState } from "react";
 Chart.register(...registerables);
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const CurrencyList = () => {
+  const [currencies, setCurrencies] = useState([]);
+
+  const fetchCurrency = async () => {
+    const data = await fetch("data.json");
+    const response = await data.json();
+    setCurrencies(response);
+  };
+
+  useEffect(() => {
+    fetchCurrency();
+  }, []);
+
+  const chartData = Object.values(currencies);
+
   const data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: [
+      "2017 Q1",
+      "2017 Q3",
+      "2018 Q1",
+      "2018 Q3",
+      "2019 Q1",
+      "2019 Q3",
+      "2020 Q1",
+      "2020 Q3",
+      "2021 Q1",
+      "2021 Q3",
+      "2022 Q1",
+    ],
     datasets: [
       {
         label: "Currencies",
@@ -26,26 +55,37 @@ const CurrencyList = () => {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 40],
+        data: chartData,
       },
     ],
   };
 
-  const [currencies, setCurrencies] = useState([]);
-
-  const fetchCurrency = async () => {
-    const data = await fetch("data.json");
-    const response = await data.json();
-    setCurrencies(response);
-  };
-
-  useEffect(() => {
-    fetchCurrency();
-  }, []);
-
   return (
     <>
-      <Line datasetIdKey="id" data={data} />
+      <Container>
+        <Row>
+          <Col>
+            <Line datasetIdKey="id" data={data} />
+          </Col>
+          <Col>
+            <Line datasetIdKey="id" data={data} />
+          </Col>
+          <Col>
+            <Line datasetIdKey="id" data={data} />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Line datasetIdKey="id" data={data} />
+          </Col>
+          <Col>
+            <Line datasetIdKey="id" data={data} />
+          </Col>
+          <Col>
+            <Line datasetIdKey="id" data={data} />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };
