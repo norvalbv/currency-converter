@@ -16,13 +16,13 @@ const Convert = () => {
   console.log(Object.entries(conversionRates));
   const dispatch = useDispatch();
   useEffect(() => {
-    fetchCurrency();
+    dispatch(fetchCurrencies());
   }, []);
 
   const i = useSelector((state) => state.currencies.currencies);
   console.log(currencies);
 
-  // https://v6.exchangerate-api.com/v6/YOUR-API-KEY/pair/EUR/GBP/AMOUNT
+  //
 
   const [amount, setAmount] = useState(0);
   const [currencyFrom, setCurrencyFrom] = useState("USD");
@@ -30,7 +30,7 @@ const Convert = () => {
   const [converted, setConverted] = useState(null);
   const [err, setErr] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!currencyFrom || !currencyTo || conversionRates.length <= 0) return;
     if (!amount) {
       setErr(true);
@@ -38,19 +38,35 @@ const Convert = () => {
     }
     setErr(false);
 
-    const from = Object.entries(conversionRates).find(
-      (ele) => ele[0] === currencyFrom
+    const response = await fetch(
+      `https://v6.exchangerate-api.com/v6/c870dd6680dafee56f5b15bc
+    /pair/${currencyFrom}/${currencyTo}/${amount}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "http://localhost:3000",
+        },
+        mode: "no-cors",
+      }
     );
 
-    const to = Object.entries(conversionRates).find(
-      (ele) => ele[0] === currencyFrom
-    );
+    console.log(response);
 
-    console.log(currencyFrom, from, currencyTo, to);
+    const data = await response.json();
 
-    if (from && to) {
-      setConverted(amount * to[1]);
-    }
+    // const from = Object.entries(conversionRates).find(
+    //   (ele) => ele[0] === currencyFrom
+    // );
+
+    // const to = Object.entries(conversionRates).find(
+    //   (ele) => ele[0] === currencyFrom
+    // );
+
+    console.log(data);
+
+    // if (from && to) {
+    //   setConverted(amount * to[1]);
+    // }
   };
 
   return (

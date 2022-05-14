@@ -3,11 +3,10 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const base =
   "https://v6.exchangerate-api.com/v6/c870dd6680dafee56f5b15bc/latest";
 
-const base2 = "../data.json";
 export const fetchCurrencies = createAsyncThunk(
   "currencies/fetchAllCurrencies",
-  async (currency1 = "USD", currency2) => {
-    const response = await fetch(`${base2}/${currency1}`);
+  async (currency1 = "USD") => {
+    const response = await fetch(`${base}/${currency1}`);
     const data = await response.json();
     return data;
   }
@@ -16,7 +15,11 @@ export const fetchCurrencies = createAsyncThunk(
 const currenciesSlice = createSlice({
   name: "currencies",
   initialState: { currencies: [], status: "idle" },
-  reducers: {},
+  reducers: {
+    updateCurrencies(state, action) {
+      state.currencies = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCurrencies.pending, (state, action) => {
@@ -31,5 +34,7 @@ const currenciesSlice = createSlice({
       });
   },
 });
+
+export const { updateCurrencies } = currenciesSlice.actions;
 
 export default currenciesSlice.reducer;
