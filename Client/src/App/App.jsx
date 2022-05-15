@@ -17,7 +17,7 @@ const App = () => {
       <h2 className="text-slate-700 text-center mb-4 text-sm">
         By Benjamin Norval
       </h2>
-      {/* <CurrencyConverter /> */}
+      <CurrencyConverter />
       <About />
       <SearchCurrency />
       <CurrencyTable />

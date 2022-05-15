@@ -26,19 +26,8 @@ const HistoricalData = () => {
     const fetchData = async () => {
       let year = 2017;
 
-      for (const i = 0; i < labels.length - 1; i++) {
-        const data = await fetch(
-          `https://v6.exchangerate-api.com/v6/c870dd6680dafee56f5b15bc/history/USD/${year}/1/1`,
-          {
-            method: "GET",
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Headers":
-                "Origin, Content-Type, X-Auth-Token",
-            },
-          }
-        );
+      for (let i = 0; i < labels.length - 1; i++) {
+        const data = await fetch();
         const response = await data.json();
         console.log(response);
         setFetchedData(response, ...fetchedData);
