@@ -3,13 +3,13 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <h3 align="center">Know Your Code</h3>
+  <h3 align="center">Currency Converter</h3>
 
   <p align="center">
     <br />
     <a href="https://github.com/norvalbv/know-your-code/issues">Report Bug</a>
   </p>
-  <p>Version: 0.5</p>
+  <p>Version: 0.9</p>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -28,8 +28,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
   </ol>
 </details>
 
@@ -37,14 +35,7 @@
 
 ## About The Project
 
-_Know Your Code_ is an ‘advanced cheat sheet’ which outline common general/interview questions and basic syntax. It is essentially an updated version of [W3schools](https://www.w3schools.com/) with a better UI, more languages, frameworks and technologies (which will be implemented in due course).
-
-Here's the benefits for Know Your Code compared to other 'cheat sheets':
-
-- The project is open sourced.
-- The project outlines interview/general questions about technologies and syntax-styled questions.
-
-Of course, the project _is_ in early stages and therefore you may experience bugs or errors. Please open an issue if you feel the need to so. Also note that more technologies will be added to the topic list in time.
+_Currency Converter_ is a simple currency converter which enables you to convert any currency from one to another. There is also historical data represented within the application.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
