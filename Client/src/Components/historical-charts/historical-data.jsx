@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import LineChart from "../line-chars";
+import LineChart from "../line-chart";
 import Loading from "../loading";
+
+// This component is not currently in use. The API used does not support time-series historical data
+// and therefore, using this component will cause too many fetches of data and max out the limit too quickly
 
 const HistoricalData = () => {
   const [currencies, setCurrencies] = useState([]);
@@ -34,7 +37,7 @@ const HistoricalData = () => {
         setCurrencies([response.conversion_rates, ...currencies]);
       }
     };
-    fetchData();
+    // fetchData();
   }, []);
 
   if (currencies.length === 0) return <Loading />;
