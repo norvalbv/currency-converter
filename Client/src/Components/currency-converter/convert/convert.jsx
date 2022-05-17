@@ -35,7 +35,7 @@ const Convert = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center h-40 gap-10">
+      <div className="flex justify-center items-center sm:gap-0 xl:gap-10 h-100 xl:h-40 flex-col xl:flex-row">
         <ConvertInputs
           setCurrencyFrom={setCurrencyFrom}
           setCurrencyTo={setCurrencyTo}
@@ -46,7 +46,7 @@ const Convert = () => {
         />
         <button
           onClick={handleSubmit}
-          className="w-32 h-10 my-6 rounded text-center bg-white relative top-3 hover:bg-slate-500 shadow-2xl shadow-emerald-500"
+          className="px-3 flex h-10 my-6 items-center rounded text-center bg-white relative top-3 hover:bg-slate-500 shadow-2xl shadow-emerald-500"
         >
           Convert
         </button>

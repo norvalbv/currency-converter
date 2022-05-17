@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const HistoricalData = () => {
   const [currencyList, setCurrencyList] = useState([]);
   const [currencyFrom, setCurrencyFrom] = useState("USD");
-  const [currencyTo, setCurrencyTo] = useState("GBP");
+  const [currencyTo, setCurrencyTo] = useState("AUD");
 
   const { currencies } = useSelector((state) => state.currencies);
 
@@ -29,8 +29,6 @@ const HistoricalData = () => {
 
   const arr = [
     "AUD",
-    "ATS",
-    "BEF",
     "BRL",
     "CAD",
     "CHF",

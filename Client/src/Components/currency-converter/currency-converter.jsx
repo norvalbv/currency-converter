@@ -7,20 +7,24 @@ const CurrencyConverter = () => {
   return (
     <div
       id="currency-converter"
-      className="mx-auto relative bg-slate-300 w-3/4 rounded h-full font-bold h-96"
+      className="mx-auto relative bg-slate-300 w-3/4 rounded font-bold"
     >
       <Tabs
         defaultActiveKey="Convert"
         id="uncontrolled-tab-example"
         className="mb-3"
       >
-        <Tab eventKey="Convert" title="Convert">
+        <Tab
+          eventKey="Convert"
+          title="Convert"
+          className="h-80 w-2/3 mx-auto pb-20"
+        >
           <Convert />
         </Tab>
         <Tab
           eventKey="History"
           title="Historical Data"
-          className="h-52 w-2/3 mx-auto text-white"
+          className="h-80 w-2/3 mx-auto text-white"
         >
           <HistoricalData />
         </Tab>
