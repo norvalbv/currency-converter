@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import currency, { fetchCurrencies } from "../../../Redux/currency";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import Loading from "../../loading";
 import ConvertInputs from "./convert-inputs";
 
@@ -37,23 +36,13 @@ const Convert = () => {
   return (
     <>
       <div className="flex justify-center items-center h-40 gap-10">
-        <div className="">
-          <p>Amount</p>
-          <input
-            className="w-64 h-10 mx-auto block my-6 rounded px-4 shadow-2xl shadow-emerald-500"
-            type="number"
-            value={amount}
-            onChange={(e) => {
-              setAmount(e.target.value);
-              setConverted(null);
-            }}
-          />
-        </div>
         <ConvertInputs
           setCurrencyFrom={setCurrencyFrom}
           setCurrencyTo={setCurrencyTo}
           setConverted={setConverted}
           currencies={currencies}
+          setAmount={setAmount}
+          amount={amount}
         />
         <button
           onClick={handleSubmit}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Loading from "../loading";
-import LineChart from "../line-chars";
+import Loading from "../../loading";
+import LineChart from "./line-chart";
 import { useSelector } from "react-redux";
 
 const HistoricalData = () => {
@@ -9,7 +9,6 @@ const HistoricalData = () => {
   const [currencyTo, setCurrencyTo] = useState("GBP");
 
   const { currencies } = useSelector((state) => state.currencies);
-  console.log(currencies);
 
   const years = [
     "2012",
@@ -27,6 +26,42 @@ const HistoricalData = () => {
   // Although this is an extremely ineffiecent way of fetching data
   // I have done it this way because the API used does not support historical time-series currency conversions
   // All the APIs I found that do support it are paid for. The API used was a free demo.
+
+  const arr = [
+    "AUD",
+    "ATS",
+    "BEF",
+    "BRL",
+    "CAD",
+    "CHF",
+    "CNY",
+    "DEM",
+    "DKK",
+    "ESP",
+    "EUR",
+    "FIM",
+    "FRF",
+    "GBP",
+    "GRD",
+    "HKD",
+    "IEP",
+    "INR",
+    "ITL",
+    "JPY",
+    "KRW",
+    "LKR",
+    "MXN",
+    "MYR",
+    "NOK",
+    "NLG",
+    "NZD",
+    "SEK",
+    "SGD",
+    "THB",
+    "TWD",
+    "USD",
+    "ZAR",
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,15 +84,21 @@ const HistoricalData = () => {
 
   return (
     <div className="h-52">
+      {/* Note: some of the conversion charts 'mess up' because the API does not
+      support all currencies and only a select few. */}
       <div className="flex gap-4">
         <select
           placeholder="Search Currency From"
           onChange={(e) => setCurrencyFrom(e.target.value)}
           className="text-slate-500 w-2/4 h-10 mx-auto block my-6 rounded text-center shadow-2xl shadow-emerald-500 focus:text-gray"
         >
-          {Object.entries(currencies.conversion_rates).map((item, i) => (
+          <option defaultValue={currencyFrom}>{currencyFrom}</option>
+
+          {arr.map((item, i) => (
             <React.Fragment key={i}>
-              <option value={item[0]}>{item[0]}</option>
+              {item.toLowerCase() !== currencyFrom.toLowerCase() && (
+                <option value={item}>{item}</option>
+              )}
             </React.Fragment>
           ))}
         </select>
@@ -66,9 +107,12 @@ const HistoricalData = () => {
           onChange={(e) => setCurrencyTo(e.target.value)}
           className="text-slate-500 w-2/4 h-10 mx-auto block my-6 rounded text-center shadow-2xl shadow-emerald-500 focus:text-gray"
         >
-          {Object.entries(currencies.conversion_rates).map((item, i) => (
+          <option defaultValue={currencyTo}>{currencyTo}</option>
+          {arr.map((item, i) => (
             <React.Fragment key={i}>
-              <option value={item[0]}>{item[0]}</option>
+              {item.toLowerCase() !== currencyFrom.toLowerCase() && (
+                <option value={item}>{item}</option>
+              )}
             </React.Fragment>
           ))}
         </select>

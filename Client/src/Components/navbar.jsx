@@ -42,13 +42,13 @@ const NavBar = () => {
                 >
                   Currency Table
                 </Nav.Link>
-                <Nav.Link
+                {/* <Nav.Link
                   eventKey="historical-data"
                   href="#historical-data"
                   onClick={() => setMenuOpen(!menuOpen)}
                 >
                   Historical Data
-                </Nav.Link>
+                </Nav.Link> */}
               </Nav>
             </Offcanvas.Body>
           </Offcanvas>

@@ -5,7 +5,6 @@ import CurrencyConverter from "../Components/currency-converter/currency-convert
 import CurrencyTable from "../Components/currency-table/currency-table";
 import SearchCurrency from "../Components/search-currency";
 import About from "../Components/about";
-import HistoricalData from "../Components/historical-charts/historical-data";
 
 const App = () => {
   return (
@@ -21,7 +20,6 @@ const App = () => {
       <About />
       <SearchCurrency />
       <CurrencyTable />
-      {/* <HistoricalData /> */}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Convert from "./convert/convert";
-import HistoricalData from "./historical-data";
+import HistoricalData from "./historical-chart/historical-data";
 
 const CurrencyConverter = () => {
   return (

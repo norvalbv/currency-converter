@@ -3,9 +3,23 @@ const ConvertInputs = ({
   setCurrencyTo,
   setConverted,
   currencies,
+  setAmount,
+  amount,
 }) => {
   return (
     <>
+      <div>
+        <p>Amount</p>
+        <input
+          className="w-64 h-10 mx-auto block my-6 rounded px-4 shadow-2xl shadow-emerald-500"
+          type="number"
+          value={amount}
+          onChange={(e) => {
+            setAmount(e.target.value);
+            setConverted(null);
+          }}
+        />
+      </div>
       <div>
         <p>Convert From</p>
         <input
