@@ -6,7 +6,7 @@ const ConvertInputs = ({
 }) => {
   return (
     <>
-      <div className="">
+      <div>
         <p>Convert From</p>
         <input
           type="text"
@@ -26,7 +26,7 @@ const ConvertInputs = ({
           ))}
         </datalist>
       </div>
-      <div className="">
+      <div>
         <p>Convert To</p>
         <input
           type="text"
@@ -34,7 +34,7 @@ const ConvertInputs = ({
           className="w-64 h-10 mx-auto block my-6 rounded text-center shadow-2xl shadow-emerald-500"
           placeholder="Search Currency"
           onChange={(e) => {
-            setCurrencyFrom(e.target.value);
+            setCurrencyTo(e.target.value);
             setConverted(null);
           }}
         />

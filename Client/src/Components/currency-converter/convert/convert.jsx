@@ -5,25 +5,11 @@ import Loading from "../../loading";
 import ConvertInputs from "./convert-inputs";
 
 const Convert = () => {
-  // const [currencies, setCurrencies] = useState([]);
-  // const [conversionRates, setConversionRates] = useState([]);
-
-  // const fetchCurrency = async () => {
-  //   const data = await fetch("data.json");
-  //   const response = await data.json();
-  //   setCurrencies(response);
-  //   setConversionRates(response.conversion_rates);
-  // };
-
-  // useEffect(() => {
-  //   dispatch(fetchCurrencies());
-  // }, []);
-
   const { currencies } = useSelector((state) => state.currencies);
 
-  const [amount, setAmount] = useState(0);
   const [currencyFrom, setCurrencyFrom] = useState("USD");
-  const [currencyTo, setCurrencyTo] = useState("USD");
+  const [currencyTo, setCurrencyTo] = useState("GBP");
+  const [amount, setAmount] = useState(0);
   const [converted, setConverted] = useState(null);
   const [err, setErr] = useState(false);
 
@@ -36,22 +22,16 @@ const Convert = () => {
     }
     setErr(false);
 
-    // const response = await fetch(
-    //   `/currencies/${currencyFrom}/${currencyTo}/${amount}`
-    // );
-
     try {
       const response = await fetch(
         `http://localhost:5000/currencies/${currencyFrom}/${currencyTo}/${amount}`
       );
       const data = await response.json();
-      console.log(data);
       setConverted(data.conversion_result);
     } catch (err) {
       console.error(err);
     }
   };
-
   if (currencies.length === 0) return <Loading />;
 
   return (
@@ -89,7 +69,7 @@ const Convert = () => {
       )}
       {converted && (
         <>
-          <p className="text-center text-2xl font-semibold text-slate-300">
+          <p className="text-center text-2xl font-semibold text-slate-900">
             {currencyFrom} {amount} = {currencyTo} {converted}
           </p>
         </>

@@ -5,8 +5,8 @@ const base =
 
 export const fetchCurrencies = createAsyncThunk(
   "currencies/fetchAllCurrencies",
-  async (currency1 = "USD") => {
-    const response = await fetch(`${base}/${currency1}`);
+  async (currency = "USD") => {
+    const response = await fetch(`${base}/${currency}`);
     const data = await response.json();
     return data;
   }

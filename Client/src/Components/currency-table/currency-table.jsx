@@ -14,7 +14,10 @@ const CurrencyTable = () => {
 
   if (status !== "success") return <Loading />;
   return (
-    <div className="w-3/5 bg-white py-3 rounded-lg relative mx-auto">
+    <div
+      id="currency-table"
+      className="w-3/5 bg-white py-3 rounded-lg relative mx-auto"
+    >
       <TableSearch />
       <Table striped bordered hover variant="dark" size="sm">
         <thead>

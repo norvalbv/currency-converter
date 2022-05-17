@@ -5,7 +5,10 @@ import HistoricalData from "./historical-data";
 
 const CurrencyConverter = () => {
   return (
-    <div className="mx-auto relative bg-gray-500 w-3/4 rounded h-72 font-bold">
+    <div
+      id="currency-converter"
+      className="mx-auto relative bg-slate-300 w-3/4 rounded h-full font-bold h-96"
+    >
       <Tabs
         defaultActiveKey="Convert"
         id="uncontrolled-tab-example"

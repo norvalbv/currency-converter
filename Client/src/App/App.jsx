@@ -2,10 +2,10 @@ import "../index.css";
 import "bootstrap/dist/css/bootstrap.css";
 import NavBar from "../Components/navbar";
 import CurrencyConverter from "../Components/currency-converter/currency-converter";
-import CurrencyList from "../Components/currency-table/currency-list";
 import CurrencyTable from "../Components/currency-table/currency-table";
 import SearchCurrency from "../Components/search-currency";
 import About from "../Components/about";
+import HistoricalData from "../Components/historical-charts/historical-data";
 
 const App = () => {
   return (
@@ -21,7 +21,7 @@ const App = () => {
       <About />
       <SearchCurrency />
       <CurrencyTable />
-      {/* <CurrencyList /> */}
+      {/* <HistoricalData /> */}
     </div>
   );
 };

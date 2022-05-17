@@ -13,7 +13,6 @@ const SearchCurrency = () => {
   const { currencies } = useSelector((state) => state.currencies);
 
   // refetches currencies after initial render once data is typed in...
-
   // initial if statement will return false on mounting due to the delay in fetching of data.
   useEffect(() => {
     if (currencies.length === 0) return;
